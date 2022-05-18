@@ -6,3 +6,5 @@ creation_rules:
     path_regex: .*/staging/.*
   - kms: 'arn:aws:kms:us-east-1:<aws-account>:key/a932e430-6959-4925-a4af-5c76c72b62cf'
     path_regex: .*/production/.*
+  - kms: 'arn:aws:kms:us-east-1:<aws-account>:key/c24edbc1-e6a1-47fa-aad9-32cb93c5bc71'
+    path_regex: .*/common/.*

@@ -1,3 +1,5 @@
+bases:
+  - vars/environments.yaml
 
 templates:
   service_default: &service_default

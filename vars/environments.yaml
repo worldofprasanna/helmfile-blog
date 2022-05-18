@@ -1,0 +1,10 @@
+environments:
+  dev:
+    secrets:
+    - vars/dev/secrets.yaml
+  production:
+    secrets:
+    - vars/production/secrets.yaml
+  staging:
+    secrets:
+    - vars/staging/secrets.yaml

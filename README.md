@@ -30,6 +30,12 @@ helmfile --environment staging --interactive --selector service=microservice-1 a
 helmfile --environment production --interactive --selector service=microservice-2 apply
 ```
 
+To delete the helm chart,
+```
+helm delete microservice-1
+helm delete microservice-2
+```
+
 ## Maintainers
 
 [@worldofprasanna](https://github.com/worldofprasanna)
