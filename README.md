@@ -14,12 +14,20 @@ Source code for Blog on Helmfile
 
 ## Install
 
+Install kubectl, helm, helmfile
 ```
+brew install helm
+brew install helmfile
 ```
+Make sure you have configured ./kube/config file to proper Kubernetes cluster
 
 ## Usage
 
+1. Update the ./sops.yaml file to have proper AWS KMS Keys
+2. Use this command,
 ```
+helmfile --environment staging --interactive --selector service=microservice-1 apply
+helmfile --environment production --interactive --selector service=microservice-2 apply
 ```
 
 ## Maintainers

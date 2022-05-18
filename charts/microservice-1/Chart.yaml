@@ -1,0 +1,9 @@
+apiVersion: v2
+name: microservice-1
+description: Sample microservice chart 1
+
+type: application
+
+version: 0.1.0
+
+appVersion: "1.16.0"

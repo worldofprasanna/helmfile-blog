@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "microservice-1.fullname" . }}
+  labels:
+    {{- include "microservice-1.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "microservice-1.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "microservice-1.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: busybox
+          env:
+          - name: some_secret_1
+            value: {{ .Values.some_secret_1}}
+          - name: some_config_1
+            value: {{ .Values.some_config_1}}
+          - name: env_specific_config
+            value: {{ .Values.env_specific_config}}
+          - name: application_specific_config
+            value: {{ .Values.application_specific_config}}
+          command: ["printenv"]

@@ -1,0 +1,20 @@
+
+templates:
+  service_default: &service_default
+    chart: ./charts/{{ `{{ .Release.Name }}` }}
+    secrets:
+      - vars/common/secrets.yaml
+      - vars/{{ .Environment.Name }}/secrets.yaml
+    values:
+      - vars/common/configs.yaml
+      - vars/{{ .Environment.Name }}/configs.yaml
+      - vars/{{ .Environment.Name }}/{{ `{{ .Release.Name }}` }}.values.yaml
+    namespace: '{{ env "NAMESPACE" | default "default" }}'
+    labels:
+      service: "{{ `{{ .Release.Name }}` }}"
+
+releases:
+- name: microservice-1
+  <<: *service_default
+- name: microservice-2
+  <<: *service_default
